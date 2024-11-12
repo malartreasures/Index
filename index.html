@@ -7,57 +7,35 @@
     <title>Malar Treasures | Instagram</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Basic Reset and Typography */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f5f8fa;
-            color: #2c3e50;
+            background-color: #f8f9fa;
+            color: #333;
             overflow-x: hidden;
-            scroll-behavior: smooth;
-            transition: background-color 0.5s ease, color 0.5s ease;
         }
 
-        /* Dark Mode */
-        .dark-mode {
-            background-color: #1b1b1b;
-            color: #e0e0e0;
-        }
-
-        /* Header with Parallax Effect */
+        /* Header Section */
         header {
-            background: linear-gradient(135deg, #6a89cc, #4a69bd);
+            background: linear-gradient(45deg, #4a90e2, #283e56);
             color: white;
-            padding: 100px 20px;
+            padding: 60px 20px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-        header h1 {
-            font-size: 4.2em;
-            font-weight: 800;
-            letter-spacing: 1px;
-            animation: fadeIn 1.2s ease forwards;
-        }
-        header p {
-            font-size: 1.4em;
-            margin-top: 10px;
-            animation: fadeIn 1.5s ease forwards;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Parallax Background */
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 150%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2));
-            transform: translateX(-50%);
-            z-index: -1;
-            animation: parallax 10s linear infinite;
+        header h1 {
+            font-size: 3.5em;
+            font-weight: 600;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
         }
 
         /* Content Section */
@@ -66,115 +44,82 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding: 60px 20px;
+            padding: 50px;
             text-align: center;
         }
+
         .content h2 {
-            font-size: 3em;
-            color: #4a69bd;
+            font-size: 2.5em;
+            color: #283e56;
             margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: slideIn 1s forwards 0.2s;
-        }
-        .content p {
-            font-size: 1.3em;
-            color: #6c757d;
-            margin-bottom: 35px;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: slideIn 1s forwards 0.4s;
-        }
-        .instagram-link {
-            background: linear-gradient(135deg, #4a69bd, #6a89cc);
-            color: white;
-            padding: 15px 35px;
-            font-size: 1.2em;
-            border-radius: 35px;
-            box-shadow: 0 8px 25px rgba(74, 105, 189, 0.4);
-            text-decoration: none;
-            transition: background 0.5s, transform 0.3s;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: slideIn 1s forwards 0.6s;
-        }
-        .instagram-link:hover {
-            background: linear-gradient(135deg, #4a69bd, #3b3b98);
-            transform: scale(1.05);
         }
 
-        /* Advanced Gallery with Dynamic Grid */
+        .content p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .instagram-link {
+            background-color: #4a90e2;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .instagram-link:hover {
+            background-color: #2b658c;
+        }
+
+        /* Gallery Section */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
-            padding: 50px 20px;
+            padding: 40px;
             margin-top: 40px;
-            opacity: 0;
-            animation: fadeIn 1s ease 0.6s forwards;
         }
+
         .gallery img {
             width: 100%;
             height: auto;
             border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             object-fit: cover;
-        }
-        .gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Footer */
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Footer Section */
         footer {
-            background-color: #2c3e50;
+            background-color: #283e56;
             color: #e1e1e1;
-            padding: 25px;
+            padding: 20px;
             text-align: center;
             font-size: 1em;
         }
-        footer p { margin: 0; }
 
-        /* Dark Mode Toggle Button */
-        .toggle-dark-mode {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #4a69bd, #6a89cc);
-            color: #fff;
-            padding: 12px 18px;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(74, 105, 189, 0.4);
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-        .toggle-dark-mode:hover {
-            background: linear-gradient(135deg, #3b3b98, #4a69bd);
-        }
-
-        /* Keyframes */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes parallax {
-            0% { transform: translateX(-50%) translateY(0); }
-            100% { transform: translateX(-50%) translateY(20px); }
+        footer p {
+            margin: 0;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.8em; }
-            .content h2 { font-size: 2em; }
-            .gallery { grid-template-columns: 1fr; }
+            header h1 {
+                font-size: 2.5em;
+            }
+            .content h2 {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
@@ -201,37 +146,5 @@
     <p>&copy; 2024 Malar Treasures. All Rights Reserved.</p>
 </footer>
 
-<div class="toggle-dark-mode" onclick="toggleDarkMode()">🌙 Dark Mode</div>
-
-<script>
-    function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
-    }
-</script>
-
 </body>
 </html>
-
-<style>
-    /* Dark Mode Toggle Button (Smaller Version) */
-    .toggle-dark-mode {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: linear-gradient(135deg, #4a69bd, #6a89cc);
-        color: #fff;
-        padding: 8px 12px; /* Reduced padding */
-        border-radius: 20px; /* Smaller and rounder */
-        font-size: 0.9em; /* Smaller font size */
-        cursor: pointer;
-        box-shadow: 0 4px 15px rgba(74, 105, 189, 0.4);
-        font-weight: 600;
-        transition: background 0.3s, transform 0.3s ease;
-    }
-    .toggle-dark-mode:hover {
-        background: linear-gradient(135deg, #3b3b98, #4a69bd);
-        transform: scale(1.1);
-    }
-</style>
-
-<div class="toggle-dark-mode" onclick="toggleDarkMode()">🌙 Dark Mode</div>
